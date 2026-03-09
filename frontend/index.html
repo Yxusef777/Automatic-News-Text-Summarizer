@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Automatic News Text Summarizer</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===================== Header ===================== -->
+  <header class="site-header">
+    <div class="header-inner">
+      <h1 class="site-title">📰 Automatic News Text Summarizer</h1>
+      <p class="site-subtitle">
+        Bilingual abstractive summarization — Arabic &amp; English — powered by Hugging Face Transformers
+      </p>
+    </div>
+  </header>
+
+  <!-- ===================== Main card ===================== -->
+  <main class="container">
+    <div class="card">
+
+      <!-- Input section -->
+      <section class="input-section">
+        <label for="articleText" class="field-label">Paste your news article</label>
+        <textarea
+          id="articleText"
+          class="article-textarea"
+          placeholder="Paste an Arabic or English news article here…"
+          rows="10"
+          spellcheck="false"
+        ></textarea>
+
+        <div class="controls-row">
+          <!-- Language selector -->
+          <div class="select-wrapper">
+            <label for="languageSelect" class="field-label">Language</label>
+            <select id="languageSelect" class="language-select">
+              <option value="auto">🌐 Auto-Detect</option>
+              <option value="en">🇬🇧 English</option>
+              <option value="ar">🇸🇦 Arabic</option>
+            </select>
+          </div>
+
+          <!-- Summarize button -->
+          <button id="summarizeBtn" class="btn-summarize" type="button">
+            Summarize
+          </button>
+        </div>
+      </section>
+
+      <!-- Loading spinner (hidden by default) -->
+      <div id="loadingIndicator" class="loading hidden" aria-live="polite">
+        <div class="spinner"></div>
+        <span>Generating summary…</span>
+      </div>
+
+      <!-- Error message (hidden by default) -->
+      <div id="errorMessage" class="error-message hidden" role="alert"></div>
+
+      <!-- Results section (hidden by default) -->
+      <section id="resultsSection" class="results-section hidden">
+        <h2 class="results-heading">Summary</h2>
+
+        <div id="summaryOutput" class="summary-output"></div>
+
+        <div class="meta-row">
+          <span class="meta-badge" id="languageBadge"></span>
+          <span class="meta-badge secondary" id="modelBadge"></span>
+        </div>
+      </section>
+
+    </div><!-- /.card -->
+  </main>
+
+  <!-- ===================== Footer ===================== -->
+  <footer class="site-footer">
+    <p>Powered by <a href="https://huggingface.co/" target="_blank" rel="noopener">Hugging Face Transformers</a> &amp; FastAPI</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
