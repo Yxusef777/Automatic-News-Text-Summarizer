@@ -109,7 +109,7 @@ curl -X POST http://localhost:8000/summarize \
   -d '{
     "text": "Paste your news article here...",
     "language": "auto",
-    "max_length": 150
+    "max_length": 200
   }'
 ```
 
